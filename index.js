@@ -49,7 +49,7 @@ function writeToFile(fileName, data) {
 function init () {
     inquirer.prompt(questions) 
     .then((answers) => {
-        writeToFile('./index.html');
+        writeToFile('./index.html', answers);
     });
 }
 
