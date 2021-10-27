@@ -31,11 +31,20 @@ function generateHTML(data) {
         <title>My Team</title>
     </head>
     <body>
-        <p>${data.name}</p>
-        <p>Manager</p>
-        <p>ID: ${data.ID}</p>
-        <p>email: ${data.email}</p>
-        <p>Office number: ${data.officeNumber}<p>
+        <card>
+            <p>${data.name}</p>
+            <p>Manager</p>
+            <p>ID: ${data.ID}</p>
+            <p>email: ${data.email}</p>
+            <p>Office number: ${data.officeNumber}<p>
+        </card>
+        <card>
+            <p>${data.name}</p>
+            <p>Manager</p>
+            <p>ID: ${data.ID}</p>
+            <p>email: ${data.email}</p>
+            <p>Office number: ${data.officeNumber}<p>
+        </card>
     </body>
     </html>`;
 }
