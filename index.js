@@ -1,8 +1,8 @@
 //Include packages
 const fs = require('fs');
 const inquirer = require('inquirer');
-//const Employee = require('employee');
-//const Manager = require('manager');
+const Employee = require('./lib/employee');
+const Manager = require('./lib/manager');
 
 
 const questions = [
