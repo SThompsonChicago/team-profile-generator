@@ -96,14 +96,14 @@ function makeHTML(data) {
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, makeHTML(data), (err) => {
-        err ? console.error(err) : console.log("You can view your team by opening index.html");
+        err ? console.error(err) : console.log("You can view your team by opening ./dist/index.html");
     });
 }
 
 function init() {
     inquirer.prompt(questions)
     .then((answers) => {
-        writeToFile('./index.html', answers);
+        writeToFile('./dist/index.html', answers);
     });
 }
 
