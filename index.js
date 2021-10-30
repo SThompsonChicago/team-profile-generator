@@ -4,6 +4,7 @@ const inquirer = require('inquirer');
 const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 
+var str;
 
 const questions = [
     {
@@ -56,13 +57,54 @@ const questions = [
     }
 ];
 
+function makeHTML(data) {
+    return `<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UFT-8">
+        <title>My Team</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <header>
+            My Team
+        </header>
+        <div class="boxes">
+            <p>${data.nameManager}</p>
+            <p>Manager</p>
+            <p>ID: ${data.IDManager}</p>
+            <p>email: ${data.emailManager}</p>
+            <p>Office number: ${data.officeNumber}<p>
+        </div>
+        <div class="boxes">
+            <p>${data.nameEngineer}</p>
+            <p>Engineer</p>
+            <p>ID: ${data.IDEngineer}</p>
+            <p>email: ${data.emailEngineer}</p>
+            <p>Github username: ${data.gitName}<p>
+        </div>
+        <div class="boxes">
+            <p>${data.nameIntern}</p>
+            <p>Intern</p>
+            <p>ID: ${data.IDIntern}</p>
+            <p>email: ${data.emailIntern}</p>
+            <p>School: ${data.school}<p>
+        </div>
+    </body>
+</html>`
+}
 
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, makeHTML(data), (err) => {
+        err ? console.error(err) : console.log("You can view your team by opening index.html");
+    });
+}
 
 function init() {
     inquirer.prompt(questions)
     .then((answers) => {
-        console.log(`The manager's name is${answers.nameManager}`);
-    })
+        writeToFile('./index.html', answers);
+    });
 }
 
 init();
